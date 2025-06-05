@@ -1,14 +1,22 @@
+/* eslint-disable prettier/prettier */
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateTaskDto } from './create-task.dto';
+import { IsOptional, IsString, IsInt, IsDate } from 'class-validator';
 
-import { IsOptional } from 'class-validator';
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 export class UpdateTaskDto extends PartialType(CreateTaskDto) {
-  name: string;
-  descripioin: string;
   @IsOptional()
+  @IsString()
+  name?: string;
+
+  @IsOptional()
+  @IsString()
   description?: string;
 
+  @IsOptional()
+  @IsInt()
+  userId?: number;
+
+  @IsOptional()
+  @IsDate()
   completedAt?: Date;
 }
