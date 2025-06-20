@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver('Book')
